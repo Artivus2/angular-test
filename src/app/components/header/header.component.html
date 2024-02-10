@@ -1,0 +1,55 @@
+<header class="bg-lime-800 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Brand Logo -->
+        <a routerLink="/products" class="font-bold flex items-center relative">
+            <box-icon name='xing' type="logo" size="lg"></box-icon>
+            <span class="text-xl font-semibold absolute -right-8 italic text-black-400">Магазин</span>
+        </a>
+
+        <!-- Navigation Menu -->
+        <nav class="space-x-6 flex">
+            <a [routerLink]="['/products']" routerLinkActive="active" class="hover:text-gray-300 font-medium">Домой</a>
+            <a [routerLink]="['/cart']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                class="hover:text-gray-300 relative text-md font-medium">
+                <box-icon class="" name="cart" type="regular" color="#fff"></box-icon>
+                <span class="px-2 rounded-full text-gray-200 font-bold text-xs absolute -right-5 -top-2"
+                    *ngIf="this.cartService.getCartItems().length">
+                    {{this.cartService.getCartItems().length}}
+                </span>
+
+
+            </a>
+            <a [routerLink]="['/products']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                class="hover:text-gray-300  text-md font-medium">Сервисы</a>
+            <a [routerLink]="['/products']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                class="hover:text-gray-300  text-md font-medium">Контакты</a>
+        </nav>
+        <div class="flex justify-end items-center gap-3">
+            <div class="relative" *ngIf="authService.currentUser() !== null">
+                <a class="cursor-pointer flex justify-end gap-2 items-center font-medium text-md group py-3">
+                    <box-icon class="" name="user" type="regular" color="white"></box-icon>
+                    <span>{{authService.currentUser()?.username}}</span>
+                    <div
+                        class="bg-emerald-700 absolute w-[150px] right-0 top-6 mt-4  text-sm text-gray-200 group-hover:block hidden  z-10">
+                        <a class="cursor-pointer px-3 py-3 transition-all flex items-center gap-2 hover:bg-emerald-800 "
+                            (click)="logout()">
+                            <box-icon name='log-out' color="white" size="18px" type="regular"></box-icon>
+                            Выход
+                        </a>
+                        <a class="cursor-pointer px-3 py-3 transition-all flex items-center gap-2 hover:bg-emerald-800 "
+                            (click)="getProfile(authService.currentUser()?.id)">
+                            <box-icon name='user' color="white" size="18px" type="regular"></box-icon>
+                            Профиль
+                        </a>
+                    </div>
+                </a>
+
+            </div>
+
+            <a *ngIf="authService.currentUser() ===  null" routerLink="/login" class="font-medium text-sm">
+                Войти
+            </a>
+
+        </div>
+    </div>
+</header>

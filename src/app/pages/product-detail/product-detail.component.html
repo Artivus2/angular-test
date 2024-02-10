@@ -1,0 +1,57 @@
+<div class="container mx-auto mt-8 p-4 relative" *ngIf="product">
+    <div class="absolute right-0 top-0">
+        <a class="cursor-pointer rounded-full border border-gray-500  items-center flex w-10 h-10 justify-center hover:bg-emerald-600 hover:border-0 transition-all delay-50"
+            (click)="this.apiService.back()">
+            <box-icon name='arrow-back' type="regular" class="hover:text-gray-200"></box-icon>
+        </a>
+    </div>
+
+    <!-- Product Image and Details -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Product Image -->
+        <div class="md:col-span-1 lg:col-span-2 flex gap-5">
+            <div class=" flex flex-col justify-start items-start gap-4" *ngIf="product.images">
+                <a class="cursor-pointer ring-2 ring-emerald-600 first:ring-rose-600 ring-offset-2"
+                    *ngFor="let image of product.images">
+                    <img [src]="image" alt="" class="w-10 h-10">
+                </a>
+            </div>
+            <img [src]="product.thumbnail" alt="Product Image" class="w-full rounded-md shadow-md">
+        </div>
+
+        <!-- Product Details -->
+        <div class="md:col-span-1 lg:col-span-1">
+            <div class="flex gap-3">
+                <span
+                    class="bg-emerald-700 py-1 px-3 text-sm rounded-md font-medium text-slate-100">{{product.brand}}</span>
+                <span
+                    class="bg-emerald-700 py-1 px-3 text-sm rounded-md font-medium text-slate-100">{{product.category}}</span>
+            </div>
+            <h2 class="text-2xl font-semibold text-gray-800">{{product.title}}</h2>
+            <div class="mb-4">
+                <span class="text-emerald-700 text-sm font-medium">Rating: {{product.rating}}</span>
+            </div>
+            <p class="text-gray-600 mb-4">{{product.description}} состоит из.....</p>
+            <div class="flex gap-0 flex-col items-start">
+                <p class="text-md font-medium line-through text-gray-800">Price: {{product.price}}</p>
+                <p class="text-md font-medium text-emerald-600"> Discount: {{product.discountPercentage}} %</p>
+                <p class="text-md font-medium text-gray-800 mb-4">Discounted Price: {{discountedPrice() |
+                    currency:'BDT ':'BDT':'3.2-2':'en'}}</p>
+            </div>
+            <button (click)="addToCart(product)"
+                class="flex items-center gap-3 bg-emerald-600 text-white text-sm font-medium py-2 px-4 rounded-md hover:bg-emerald-700 focus:outline-none focus:ring focus:border-emerald-700">
+                <box-icon name='cart-add' color="white" type="regular"></box-icon>
+                Add
+                to Cart</button>
+        </div>
+
+    </div>
+
+    <!-- Product Description -->
+    <div class="mt-8">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Описание продукта</h3>
+        <p class="text-gray-600">{{product.description}} состоит из подробного описания</p>
+    </div>
+
+</div>

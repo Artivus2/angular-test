@@ -1,0 +1,42 @@
+<!-- {{userProfile | json}} -->
+
+<!-- User Profile -->
+<div class="bg-white p-6 rounded-md shadow-md max-w-2xl mx-auto mt-8" *ngIf="userProfile as user">
+
+    <!-- Profile Picture and User Details -->
+    <div class="flex items-center">
+        <img [src]="user.image" alt="Profile Picture" class="w-16 h-16 rounded-full mr-4">
+        <div>
+            <h1 class="text-2xl font-semibold text-gray-800">{{user.firstName}} {{user.lastName}}</h1>
+            <p class="text-gray-600">Software Developer</p>
+        </div>
+    </div>
+
+    <!-- Additional Information -->
+    <div class="mt-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">About Me</h2>
+        <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo augue ac sapien
+            gravida, ut ultrices mauris luctus...</p>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="mt-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Contact Information</h2>
+        <ul class="list-disc list-inside text-gray-600">
+            <li>Email: {{user.email}}</li>
+            <li>Phone: {{user.phone}}</li>
+            <li>Location: </li>
+        </ul>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="mt-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Connect with Me</h2>
+        <div class="flex items-center space-x-4">
+            <a href="#" class="text-blue-500 hover:underline" target="_blank">Twitter</a>
+            <a href="#" class="text-indigo-500 hover:underline" target="_blank">LinkedIn</a>
+            <a href="#" class="text-gray-800 hover:underline" target="_blank">Personal Website</a>
+        </div>
+    </div>
+
+</div>
