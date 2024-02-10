@@ -1,6 +1,12 @@
-# Mycart17
+Тест магазин на Аглуляре 17.0.3.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+<p align="center">
+    <a href="https://github.com/artivus2/" target="_blank">
+        <img src="angular-shop-test.jpg" height="300px">
+    </a>
+    <h1 align="center">На базовом шаблоне yii2 + vue3</h1>
+    <br>
+</p>
 
 ## Development server
 
