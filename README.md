@@ -2,10 +2,10 @@
 
 <p align="center">
     
-        <img src="angular-shop-test.jpg" height="300px">
+<img src="angular-shop-test.jpg" height="300px"/>
     
-    <h1 align="center">На Angular 17. api на сайт http://dummyjson.com</h1>
-    <br>
+<h1 align="center">На Angular 17. api на сайт http://dummyjson.com</h1>
+<br>
 </p>
 
 ## Development server
