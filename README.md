@@ -4,7 +4,7 @@
     <a href="https://github.com/artivus2/" target="_blank">
         <img src="angular-shop-test.jpg" height="300px">
     </a>
-    <h1 align="center">На базовом шаблоне yii2 + vue3</h1>
+    <h1 align="center">На Angular 17. api на сайт http://dummyjson.com</h1>
     <br>
 </p>
 
